@@ -1,0 +1,15 @@
+---
+
+- name: install
+  yum: name=aiccu state=present
+
+- name: systemd
+  template: src=aiccu.service.j2 dest=/etc/systemd/system/aiccu.service
+  notify: aiccu restart
+
+- name: configure
+  template: src=aiccu.conf.j2 dest=/etc/aiccu.conf
+  notify: aiccu restart
+
+- name: enable
+  service: name=aiccu enabled=yes
