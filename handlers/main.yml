@@ -1,0 +1,4 @@
+---
+
+- name: aiccu restart
+  service: name=aiccu state=restarted
