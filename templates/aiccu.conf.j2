@@ -16,7 +16,11 @@ ipv6_interface sixxs
 
 # The tunnel_id to use (default: none)
 # (only required when there are multiple tunnels in the list)
+{% if aiccu_tunnel is defined %}
+tunnel_id {{ aiccu_tunnel }}
+{% else %}
 #tunnel_id Txxxx
+{% endif %}
 
 # Be verbose? (default: false)
 verbose false
